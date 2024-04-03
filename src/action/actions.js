@@ -21,6 +21,15 @@ import {
   FETCH_PRODUCT_REQUEST,
   FETCH_PRODUCT_SUCCESS,
   FETCH_PRODUCT_ERROR,
+  FETCH_REGISTER_REQUEST,
+  FETCH_REGISTER_SUCCESS,
+  FETCH_REGISTER_ERROR,
+  FETCH_LOGIN_REQUEST,
+  FETCH_LOGIN_SUCCESS,
+  FETCH_LOGIN_ERROR,
+  FETCH_BLOG_REQUEST,
+  FETCH_BLOG_SUCCESS,
+  FETCH_BLOG_ERROR,
 } from "./types";
 
 export const increaseCounter = () => {
@@ -66,6 +75,7 @@ export const fetchAllUsers = () => {
     axios
       .get("http://localhost:8081/users/all")
       .then((res) => {
+        console.log(res);
         dispatch(fetchUserSuccess(res.data));
       })
       .catch((error) => {
@@ -198,5 +208,121 @@ export const fetchProductSuccess = (data) => {
 export const fetchProductError = () => {
   return {
     type: FETCH_PRODUCT_ERROR,
+  };
+};
+
+export const fetchRegister = (email, password, phone , name ,address) => {
+  return async (dispatch) => {
+    dispatch(fetchRegisterRequest());
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/laravel8/public/api/register",
+        { email, password, name , phone , address}
+      );
+      dispatch(fetchRegisterSuccess(response.data));
+      return response.data; // Optionally return data
+    } catch (error) {
+      dispatch(fetchRegisterError(error));
+      throw error; // Re-throw error for handling in component
+    }
+  };
+};
+
+
+
+export const fetchRegisterRequest = () => {
+  return {
+    type: FETCH_REGISTER_REQUEST,
+  };
+};
+export const fetchRegisterSuccess = (data) => {
+  return {
+    type: FETCH_REGISTER_SUCCESS,
+    dataUsers: data,
+  };
+};
+
+export const fetchRegisterError = () => {
+  return {
+    type: FETCH_REGISTER_ERROR,
+  };
+};
+
+
+
+
+export const fetchLogin = (email, password,level) => {
+  return async (dispatch) => {
+    dispatch(fetchLoginRequest());
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/laravel8/public/api/login",
+        { email, password ,level}
+      );
+      console.log(response);
+      dispatch(fetchLoginSuccess(response));
+      return response.data; // Optionally return data
+    } catch (error) {
+      dispatch(fetchLoginError(error));
+      throw error; // Re-throw error for handling in component
+    }
+  };
+};
+
+
+
+export const fetchLoginRequest = () => {
+  return {
+    type: FETCH_LOGIN_REQUEST,
+  };
+};
+export const fetchLoginSuccess = (data) => {
+  return {
+    type: FETCH_LOGIN_SUCCESS,
+    dataUsers: data,
+  };
+};
+
+export const fetchLoginError = () => {
+  return {
+    type: FETCH_LOGIN_ERROR,
+  };
+};
+
+
+
+export const fetchBlog = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchBlogRequest());
+    axios
+      .get(
+        "http://localhost:8080/laravel8/public/api/blog"
+      )
+      .then((res) => {
+        console.log(res);
+        dispatch(fetchBlogSuccess(res.data.blog.data));
+      })
+      .catch((error) => {
+        console.log(error);
+        dispatch(fetchBlogError(error));
+      });
+  };
+};
+
+export const fetchBlogRequest = () => {
+  return {
+    type: FETCH_BLOG_REQUEST,
+  };
+};
+export const fetchBlogSuccess = (data) => {
+  return {
+    type: FETCH_BLOG_SUCCESS,
+    dataUsers: data,
+  };
+};
+
+export const fetchBlogError = () => {
+  return {
+    type: FETCH_BLOG_ERROR,
   };
 };

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import "font-awesome/css/font-awesome.min.css"; // Add this line
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import reportWebVitals from "./reportWebVitals";
 import B from "./Component/B";
@@ -14,6 +15,10 @@ import store from "./redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import Food from "./components/Food";
+import Register from "./components/Register";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Blog from "./components/Blog";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,7 +31,12 @@ root.render(
           <Route path="a" element={<A />} />
           <Route path="c" element={<C />} />
           <Route path="/food" element={<Food />} />
-        </Routes>
+          <Route path="/register" element={<Register/>} />
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/blog" element={<Blog/>} />
+
+          </Routes>
       </App>
     </Provider>
     ,

@@ -30,3 +30,24 @@ export const FETCH_PRODUCT_REQUEST = "FETCH_PRODUCT_REQUEST";
 export const FETCH_PRODUCT_SUCCESS = "FETCH_PRODUCT_SUCCESS";
 export const FETCH_PRODUCT_ERROR = "FETCH_PRODUCT_ERROR";
 ////////////////////////
+
+
+
+
+export const FETCH_REGISTER_REQUEST = "FETCH_REGISTER_REQUEST";
+export const FETCH_REGISTER_SUCCESS = "FETCH_REGISTER_SUCCESS";
+export const FETCH_REGISTER_ERROR = "FETCH_REGISTER_ERROR";
+////////////////////////
+
+
+export const FETCH_LOGIN_REQUEST = "FETCH_LOGIN_REQUEST";
+export const FETCH_LOGIN_SUCCESS = "FETCH_LOGIN_SUCCESS";
+export const FETCH_LOGIN_ERROR = "FETCH_LOGIN_ERROR";
+////////////////////////
+
+
+
+export const FETCH_BLOG_REQUEST = "FETCH_BLOG_REQUEST";
+export const FETCH_BLOG_SUCCESS = "FETCH_BLOG_SUCCESS";
+export const FETCH_BLOG_ERROR = "FETCH_BLOG_ERROR";
+////////////////////////

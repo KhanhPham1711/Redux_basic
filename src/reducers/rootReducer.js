@@ -6,6 +6,10 @@ import toggle_switch from "./ToogleRecuder";
 import countdowmReducer from "./countdowmReducer";
 import userReducer from "./userReducer";
 import ProductReduce from "./ProductReduce";
+import RegisterReducer from "./RegisterReducer";
+import LoginReducer from "./LoginReducer";
+import BlogReducer from "./BlogReducer";
+
 
 const rootReducer = combineReducers({
   todos: todoReducer, // Đặt tên đúng cho reducer của todos
@@ -14,5 +18,8 @@ const rootReducer = combineReducers({
   countdown: countdowmReducer,
   user: userReducer,
   products: ProductReduce,
+  register:RegisterReducer,
+  login: LoginReducer,
+  blog: BlogReducer,
 });
 export default rootReducer;

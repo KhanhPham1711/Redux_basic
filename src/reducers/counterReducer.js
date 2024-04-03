@@ -11,16 +11,13 @@ const counterReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         count: state.count + 1,
-      };
-
-    case DECREMENT:
-      console.log("running decrement");
-
-      return {
-        ...state,
-        count: state.count - 1,
-      };
-
+      }
+      case DECREMENT:
+        console.log("running decrement");
+        return {
+          ...state,
+          count: state.count - 1,
+        }
     default:
       return state;
   }
